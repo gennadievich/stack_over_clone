@@ -5,6 +5,8 @@ Stack::Application.routes.draw do
 
   root 'home#index'
 
+  resources :users
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

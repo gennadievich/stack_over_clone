@@ -1,7 +1,7 @@
 Home page
 
 <p>
-<%= link_to current_user.email if current_user%>
+<%= link_to current_user.email, user_path(current_user.id) if current_user%>
 <%= link_to 'Logout', logout_path if current_user %>
 <%= link_to 'Login', login_path unless current_user%>
 

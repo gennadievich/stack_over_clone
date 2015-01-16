@@ -1,1 +1,9 @@
 Home page
+
+<p>
+<%= link_to current_user.email if current_user%>
+<%= link_to 'Logout', logout_path if current_user %>
+<%= link_to 'Login', login_path unless current_user%>
+
+<%= link_to 'Register', new_user_path unless current_user%>
+</p>

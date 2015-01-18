@@ -1,9 +1,15 @@
-Home page
+<div class="header-container">
 
-<p>
-<%= link_to current_user.email, user_path(current_user.id) if current_user%>
-<%= link_to 'Logout', logout_path if current_user %>
-<%= link_to 'Login', login_path unless current_user%>
+  <ul>
+    <li><%= link_to 'My Stack', root_path%></li>
+    <li><%= link_to 'Ask Question' %></li>
+    <li><%= link_to 'Sign in', login_path unless current_user%></li>
+    <li><%= link_to 'Sign up', new_user_path unless current_user%></li>
+    <li><%= link_to "Signed in as #{current_user.email}", user_path(current_user.id) if current_user%></li>
+    <li><%= link_to 'Logout', logout_path if current_user %></li>
+  </ul>
 
-<%= link_to 'Register', new_user_path unless current_user%>
-</p>
+</div>
+
+
+

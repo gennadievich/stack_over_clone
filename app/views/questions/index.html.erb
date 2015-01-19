@@ -1,0 +1,15 @@
+<h2>All questions</h2>
+
+<% @question.each do |question| %>
+    <p>
+       Title: <%= link_to "#{question.title}" %>
+    </p>
+
+    <p>
+       Description: <%= question.description %>
+    </p>
+
+    <br>
+<% end %>
+
+<%= link_to 'Home', root_path %>

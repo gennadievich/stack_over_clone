@@ -6,10 +6,12 @@ Stack::Application.routes.draw do
   root 'home#index'
 
   resources :users
+  resources :questions
 
   get  '/login'   => 'sessions#index', as: 'login'
   post '/login'   => 'sessions#create'
   get  '/logout'  => 'sessions#destroy', as: 'logout'
+  post '/questions/new' => 'questions#create'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -1,7 +1,18 @@
 class QuestionsController < ApplicationController
 
+
+  def index
+    @question = Question.order('created_at desc')
+  end
+
   def new
     @question = Question.new
+  end
+
+  def show
+    @question = Question.find(params[:id])
+    @question.views+=1
+    @question.save
   end
 
   def create
@@ -15,9 +26,6 @@ class QuestionsController < ApplicationController
     end
   end
 
-  def index
-    @question = Question.all
-  end
 
   private
   def  question_params

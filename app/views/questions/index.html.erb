@@ -2,14 +2,17 @@
 
 <% @question.each do |question| %>
     <p>
-       Title: <%= link_to "#{question.title}" %>
+       Title: <%= link_to "#{question.title}", question_path(question.id) %>
     </p>
 
     <p>
        Description: <%= question.description %>
     </p>
 
+    <p>
+      Views: <%= question.views %>
+      Votes: <%= question.votes %>
+    </p>
+
     <br>
 <% end %>
-
-<%= link_to 'Home', root_path %>

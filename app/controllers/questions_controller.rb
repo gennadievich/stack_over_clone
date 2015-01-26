@@ -5,14 +5,14 @@ class QuestionsController < ApplicationController
     @question = Question.order('created_at desc')
   end
 
-  def new
-    @question = Question.new
-  end
-
   def show
     @question = Question.find(params[:id])
     @question.views+=1
     @question.save
+  end
+
+  def new
+    @question = Question.new
   end
 
   def create

@@ -17,7 +17,9 @@
     <p>
       <%= "Tags:" if question.tags.present? %>
       <% question.tags.each do |tag|%>
-          <%= tag.name %>
+          <span id="tag" style="display: inline-block">
+            <%= link_to "#{tag.name}" %>
+          </span>
       <%end %>
     </p>
 

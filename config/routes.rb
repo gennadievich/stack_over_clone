@@ -3,7 +3,7 @@ Stack::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
 
-  root 'questions#index'
+  root 'questions#index_15'
 
   resources :users
   resources :questions

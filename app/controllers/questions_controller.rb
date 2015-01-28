@@ -1,6 +1,10 @@
 class QuestionsController < ApplicationController
 
 
+  def index_15
+    @question = Question.order('created_at desc').limit(15)
+  end
+
   def index
     @question = Question.order('created_at desc')
   end
@@ -18,6 +22,9 @@ class QuestionsController < ApplicationController
   def create
 
     @question = Question.new(question_params)
+    tags = @question.tages
+    @question.tags << tags
+
 
     if @question.save
       redirect_to root_path
@@ -29,7 +36,7 @@ class QuestionsController < ApplicationController
 
   private
   def  question_params
-    params.require(:question).permit(:title, :description)
+    params.require(:question).permit(:title, :description, :tages)
   end
 
 end

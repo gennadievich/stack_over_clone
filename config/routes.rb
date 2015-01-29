@@ -4,14 +4,17 @@ Stack::Application.routes.draw do
 
 
   root 'questions#index_15'
+  get  '/questions/search_questions/:tag_id' => 'questions#search_questions_by', as: 'search_questions'
 
   resources :users
   resources :questions
+  resources :tags
 
   get  '/login'   => 'sessions#index', as: 'login'
   post '/login'   => 'sessions#create'
   get  '/logout'  => 'sessions#destroy', as: 'logout'
   post '/questions/new' => 'questions#create'
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

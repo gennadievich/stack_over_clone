@@ -4,6 +4,7 @@
     <li><%= link_to 'My Stack', root_path%></li>
     <li><%= link_to 'All questions', questions_path %></li>
     <li><%= link_to 'Ask Question', new_question_path %></li>
+    <li><%= link_to 'Tags', tags_path %></li>
     <li class="right"><%= link_to 'Sign in', login_path unless current_user%></li>
     <li class="right"><%= link_to 'Sign up', new_user_path unless current_user%></li>
     <li class="right"><%= link_to 'Logout', logout_path if current_user %></li>

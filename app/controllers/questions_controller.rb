@@ -19,6 +19,10 @@ class QuestionsController < ApplicationController
     @question = Question.new
   end
 
+  def search_questions_by
+    @question = Tag.find(params[:tag_id]).questions
+  end
+
   def create
 
     @question = Question.new(question_params)

@@ -1,17 +1,6 @@
-
 <% @question.each do |question| %>
-    <p>
-       Title: <%= link_to "#{question.title}", question_path(question.id) %>
-    </p>
 
-    <p>
-       Description: <%= question.description %>
-    </p>
-
-    <p>
-      Views: <%= question.views %>
-      Votes: <%= question.votes %>
-     </p>
+    <%= render partial: 'questions/question_partial', locals: {question: question} %>
 
     <p>
       <%= "Tags:" if question.tags.present? %>

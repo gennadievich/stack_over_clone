@@ -1,6 +1,3 @@
 <% @question.each do |question| %>
-    <%= question.title %>
-    <%= question.description %>
-    <%= question.views %>
-    <%= question.votes %>
+    <%= render partial: 'questions/question_partial', locals: {question: question} %>
 <% end %>

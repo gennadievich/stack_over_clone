@@ -16,9 +16,7 @@
 
     <p>
       <%= "Tags:" if question.tags.present? %>
-      <% question.tags.each do |tag|%>
-          <%= tag.name %>
-      <%end %>
+      <%= render partial: 'questions/tag', locals: {tags: question.tags} %>
     </p>
 
     <br>

@@ -25,7 +25,6 @@ class QuestionsController < ApplicationController
     tags = @question.tages
     @question.tags << tags
 
-
     if @question.save
       redirect_to root_path
     else

@@ -1,4 +1,3 @@
-<h2>All questions</h2>
 
 <% @question.each do |question| %>
     <p>
@@ -16,11 +15,7 @@
 
     <p>
       <%= "Tags:" if question.tags.present? %>
-      <% question.tags.each do |tag|%>
-          <span id="tag" style="display: inline-block">
-            <%= link_to "#{tag.name}" %>
-          </span>
-      <%end %>
+      <%= render partial: 'questions/tag', locals: {tags: question.tags} %>
     </p>
 
     <br>

@@ -16,5 +16,5 @@
     </p>
 
     <p>
-      Tags: <%= render partial: 'questions/tag' %>
+      Tags: <%= render partial: 'questions/tag', locals: {tags: @question.tags} %>
     </p>

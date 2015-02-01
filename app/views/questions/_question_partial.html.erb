@@ -1,9 +1,9 @@
 <p>
-  Title: <%= link_to "#{question.title}", question_path(question.id) %>
+  Question: <%= link_to "#{question.title}", question_path(question.id) %>
 </p>
 
 <p>
-  Author: <%= question.user.email%>
+  Asked by: <%= link_to "#{question.user.email}", user_path(question.user)%>
 </p>
 
 <p>

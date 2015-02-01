@@ -3,4 +3,8 @@ User page
 <%= @user.email %>
 </p>
 
+<p>
+  Total user's questions: <%= @user.questions.count %>
+</p>
+
 <%= link_to 'Back', root_path %>

@@ -1,5 +1,6 @@
 class QuestionsController < ApplicationController
 
+  before_action :authenticate_user, except: [:index,:index_15]
 
   def index_15
     @question = Question.order('created_at desc').limit(15)

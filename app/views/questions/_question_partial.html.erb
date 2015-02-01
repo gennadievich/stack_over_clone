@@ -2,6 +2,9 @@
   Title: <%= link_to "#{question.title}", question_path(question.id) %>
 </p>
 
+<p>
+  Author: <%= question.user.email%>
+</p>
 
 <p>
   Description: <%= question.description %>

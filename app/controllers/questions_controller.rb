@@ -26,6 +26,13 @@ class QuestionsController < ApplicationController
 
   def destroy
     @question = Question.find(params[:id])
+
+      if @question.tags.present?
+        @question.tags.each do |tag|
+          check_tag(tag.id)
+        end
+      end
+
     @question.destroy
     redirect_to root_path
   end
@@ -48,6 +55,13 @@ class QuestionsController < ApplicationController
   private
   def  question_params
     params.require(:question).permit(:title, :description, :tages)
+  end
+
+  def check_tag(id)
+    tag = Tag.find(id)
+      if tag.questions.size == 1
+        tag.delete
+      end
   end
 
 end

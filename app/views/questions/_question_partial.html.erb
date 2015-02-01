@@ -3,10 +3,18 @@
 </p>
 
 <p>
+  Author: <%= question.user.email %>
+</p>
+
+<p>
   Description: <%= question.description %>
 </p>
 
 <p>
   Views: <%= question.views %>
   Votes: <%= question.votes %>
+</p>
+
+<p>
+  <%= link_to 'Delete Question', question, method: :delete %>
 </p>

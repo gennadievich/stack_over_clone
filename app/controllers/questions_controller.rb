@@ -24,11 +24,18 @@ class QuestionsController < ApplicationController
     @question = Tag.find(params[:tag_id]).questions
   end
 
+  def destroy
+    @question = Question.find(params[:id])
+    @question.destroy
+    redirect_to root_path
+  end
+
   def create
 
     @question = Question.new(question_params)
     tags = @question.tages
     @question.tags << tags
+    @question.user = @current_user
 
     if @question.save
       redirect_to root_path

@@ -1,7 +1,4 @@
 <h2>question page</h2>
-
+    <%= @question.description %>
+    <br>
     <%= render partial: 'questions/question_partial', locals: {question: @question} %>
-
-    <p>
-      Tags: <%= render partial: 'questions/tag', locals: {tags: @question.tags} %>
-    </p>

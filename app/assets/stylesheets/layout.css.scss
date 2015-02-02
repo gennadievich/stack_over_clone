@@ -3,15 +3,15 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #main{
-  padding: 0px 15px;
+  padding: 0px 300px;
   }
 
 .header-container{
-  background-color: lightgrey;
-  height: 30px;
-  line-height: 30px;
+  background-color: #F7F7F7;
+  height: 60px;
+  line-height: 60px;
   margin-bottom: 20px;
-  padding: 15px;
+  padding-left: 300px;
   }
 
 ul {
@@ -26,12 +26,12 @@ li {
   margin-right: 15px;
   }
 
-li.right{
+.right{
   float: right;
   }
 
 a:link, a:visited {
-  display: block;
+
   width: auto;
   font-weight: bold;
   color: black;

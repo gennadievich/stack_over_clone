@@ -2,10 +2,5 @@
 
     <%= render partial: 'questions/question_partial', locals: {question: question} %>
 
-    <p>
-      <%= "Tags:" if question.tags.present? %>
-      <%= render partial: 'questions/tag', locals: {tags: question.tags} %>
-    </p>
-
     <br>
 <% end %>

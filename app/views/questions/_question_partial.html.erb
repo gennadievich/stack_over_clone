@@ -1,20 +1,22 @@
-<p>
-  Question: <%= link_to "#{question.title}", question_path(question.id) %>
-</p>
+<div class="question">
 
-<p>
-  Asked by: <%= link_to "#{question.user.email}", user_path(question.user)%>
-</p>
+    <span>
+      Views: <%= question.views %>
+      Votes: <%= question.votes %>
+      Question: <%= link_to "#{question.title}", question_path(question.id) %>
+      Asked by: <%= link_to "#{question.user.email}", user_path(question.user)%>
+    </span>
 
-<p>
-  Description: <%= question.description %>
-</p>
+    <!--<p>
+        Description: <%= question.description %>
+    </p> -->
 
-<p>
-  Views: <%= question.views %>
-  Votes: <%= question.votes %>
-</p>
+    <p>
+        <%= render partial: 'questions/tag', locals:  {tags: question.tags} %>
+    </p>
 
-<p>
-  <%= link_to 'Delete Question', question, method: :delete %>
-</p>
+  <p>
+    <%= link_to 'Delete Question', question, method: :delete %>
+  </p>
+
+</div>

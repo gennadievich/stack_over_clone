@@ -5,9 +5,9 @@
     <li><%= link_to 'All questions', questions_path %></li>
     <li><%= link_to 'Ask Question', new_question_path %></li>
     <li><%= link_to 'Tags', tags_path %></li>
-    <li style="float: right; padding-right: 300px"><%= link_to 'Sign in', login_path unless current_user%></li>
+    <li style="float: right; padding-right: 15%"><%= link_to 'Sign in', login_path unless current_user%></li>
     <li class="right"><%= link_to 'Sign up', new_user_path unless current_user%></li>
-    <li style="float: right; padding-right: 300px"><%= link_to 'Logout', logout_path if current_user %></li>
+    <li style="float: right; padding-right: 15%"><%= link_to 'Logout', logout_path if current_user %></li>
     <li class="right"><%= link_to "Signed in as #{current_user.email}", user_path(current_user.id) if current_user%></li>
 
   </ul>

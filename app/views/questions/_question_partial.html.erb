@@ -1,22 +1,38 @@
-<div class="question">
+<div class="question cf">
 
-    <span>
-      Views: <%= question.views %>
-      Votes: <%= question.votes %>
-      Question: <%= link_to "#{question.title}", question_path(question.id) %>
-      Asked by: <%= link_to "#{question.user.email}", user_path(question.user)%>
-    </span>
+    <div class="circle">
+      <div class="circle-text">
+        <%= question.views %><br>
+        Views
+      </div>
+    </div>
+
+    <div class="circle">
+      <div class="circle-text">
+        <%= question.votes %><br>
+        Votes
+      </div>
+    </div>
+
+    <div class="question-info">
+      <div class="question-title">
+        <%= link_to "#{question.title}", question_path(question.id) %>
+      </div>
+
+      <div class="question-title-tags">
+        <%= render partial: 'questions/tag', locals:  {tags: question.tags} %>
+      </div>
+
+    </div>
+
+    <div class="user-info">
+      Author: <%= link_to "#{question.user.email}", user_path(question.user)%>
+    </div>
 
     <!--<p>
         Description: <%= question.description %>
     </p> -->
 
-    <p>
-        <%= render partial: 'questions/tag', locals:  {tags: question.tags} %>
-    </p>
 
-  <p>
-    <%= link_to 'Delete Question', question, method: :delete %>
-  </p>
 
 </div>

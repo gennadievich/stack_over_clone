@@ -1,4 +1,10 @@
 <h2>question page</h2>
-    <%= @question.description %>
+
     <br>
     <%= render partial: 'questions/question_partial', locals: {question: @question} %>
+
+<p>
+  <%= link_to 'Del', @question, method: :delete %>
+</p>
+
+Question description: <%= @question.description %>

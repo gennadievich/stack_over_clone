@@ -25,14 +25,14 @@
 
     </div>
 
-    <div class="user-info">
-      Author: <%= link_to "#{question.user.email}", user_path(question.user)%>
+    <div class="question-management">
+        <div class="user-info">
+            Author: <%= link_to "#{question.user.email}", user_path(question.user)%>
+        </div>
+
+        <div class="question-delete">
+            <%= button_to 'Delete question', question, method: :delete if check_current_user(question.user)%>
+        </div>
     </div>
-
-    <!--<p>
-        Description: <%= question.description %>
-    </p> -->
-
-
 
 </div>

@@ -1,43 +1,7 @@
-we are here
+<%= render partial: 'questions/question_partial', locals: {question: question} %>
 
-
-Question description: <%= @question.description %>
-
-<div class="question cf">
-
-  <div class="circle">
-    <div class="circle-text">
-      <%= question.views %><br>
-      Views
+<div class="question">
+    <div class="question-description">
+        <%= @question.description %>
     </div>
-  </div>
-
-  <div class="circle">
-    <div class="circle-text">
-      <%= question.votes %><br>
-      Votes
-    </div>
-  </div>
-
-  <div class="question-info">
-    <div class="question-title">
-      <%= link_to "#{question.title}", question_path(question.id) %>
-    </div>
-
-    <div class="question-title-tags">
-      <%= render partial: 'questions/tag', locals:  {tags: question.tags} %>
-    </div>
-
-  </div>
-
-  <div class="question-management">
-    <div class="user-info">
-      Author: <%= link_to "#{question.user.email}", user_path(question.user)%>
-    </div>
-
-    <div class="question-delete">
-      <%= button_to 'Delete question', question, method: :delete if check_current_user(question.user)%>
-    </div>
-  </div>
-
 </div>

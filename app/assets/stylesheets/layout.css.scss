@@ -37,6 +37,14 @@
   padding-bottom: 10px;
   }
 
+.question-description{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 70%;
+  margin-left: 205px;
+  font-size: 20px;
+  }
+
 ul {
   list-style-type: none;
   margin: 0;
@@ -89,9 +97,9 @@ a:link, a:visited {
 
 .question-management {
   float: right;
-
+  font-size: 15px;
   .user-info {
-    margin-top: 20px;
+    margin-top: 10px;
     }
   .question-delete {
     margin-top: 10px;

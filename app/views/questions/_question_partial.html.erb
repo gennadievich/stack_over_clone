@@ -26,6 +26,10 @@
     </div>
 
     <div class="question-management">
+        <div>
+            Asked: <%= question.created_at.strftime("%d %b %y") %>
+        </div>
+
         <div class="user-info">
             Author: <%= link_to "#{question.user.email}", user_path(question.user)%>
         </div>

@@ -1,0 +1,46 @@
+.login{
+  border: solid #F7F7F7 2px;
+  border-radius: 5px;
+  top: 35%; /* Отступ в процентах от верхнего края окна */
+  left: 50%; /* Отступ в процентах от левого края окна */
+  width: 350px; /* Ширина блока */
+  height: 250px; /* Высота блока */
+  position: absolute; /* Абсолютное позиционирование блока */
+  margin-top: -225px; /* Отрицательный отступ от верхнего края страницы, должен равняться половине высоты блока со знаком минус */
+  margin-left: -225px; /* Отрицательный отступ от левого края страницы, должен равняться половине высоты блока со знаком минус */
+  }
+
+.text-login{
+  height: 30px;
+  border-bottom: #F7F7F7 solid 2px;
+  background: #F7F7F7;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 5px;
+  }
+
+.login-text{
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-size: 18px;
+  text-align: center;
+  }
+
+.login-field{
+  height: 20px;
+  width: 60%;
+  border-radius: 5px;
+  font-size: 18px;
+  margin-left: 20%;
+  }
+
+.button{
+  font-size: 18px;
+  margin-top: 10px;
+  height: 30px;
+  width: 100px;
+  margin-left: 28%;
+  border-radius: 5px;
+  }

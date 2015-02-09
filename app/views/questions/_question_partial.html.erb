@@ -35,7 +35,7 @@
         </div>
 
         <div class="question-delete">
-            <%= button_to 'Delete question', question, method: :delete if check_current_user(question.user)%>
+            <%= button_to 'Delete question', question, class: 'delete-button', method: :delete if check_current_user(question.user)%>
         </div>
     </div>
 

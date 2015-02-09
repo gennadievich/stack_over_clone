@@ -1,0 +1,82 @@
+.question{
+  border-bottom: 1px solid lightgrey;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  }
+
+.question-description{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 70%;
+  margin-left: 205px;
+  font-size: 20px;
+  }
+
+.question-info{
+  float: left;
+  margin-left: 20px;
+  margin-top: 20px;
+  .question-title{
+    font-size: 18px;
+    font-weight: bold;
+    }
+  .question-title-tags{
+    margin-top: 10px;
+    }
+  }
+
+.question-management {
+  float: right;
+  font-size: 15px;
+  .user-info {
+    margin-top: 10px;
+    }
+  .question-delete {
+    margin-top: 10px;
+    }
+  }
+
+.question-text{
+  font-size: 20px;
+  margin-bottom: 5px;
+  }
+
+.question-form{
+  margin-top: 10px;
+  font-size: 20px;
+  }
+
+.question-title-field{
+  height: 30px;
+  width: 100%;
+  border-radius: 5px;
+  font-size: 20px;
+  }
+
+.question-description-field{
+  margin-top: 30px;
+  height: 250px;
+  width: 100%;
+  border-radius: 5px;
+  font-size: 20px;
+  }
+
+.question-tag-field{
+  height: 30px;
+  width: 100%;
+  border-radius: 5px;
+  font-size: 20px;
+  }
+
+.question-form-tags{
+  margin-top: 270px;
+  margin-bottom: 5px;
+  }
+
+.ask-button{
+  font-size: 20px;
+  margin-top: 10px;
+  height: 35px;
+  width: 200px;
+  border-radius: 5px;
+  }

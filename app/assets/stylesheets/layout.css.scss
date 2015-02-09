@@ -31,31 +31,6 @@
   font-size: 18px;
   }
 
-.question{
-  border-bottom: 1px solid lightgrey;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  }
-
-.question-description{
-  padding-top: 10px;
-  padding-bottom: 10px;
-  width: 70%;
-  margin-left: 205px;
-  font-size: 20px;
-  }
-
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  }
-
-li {
-  float: left;
-  margin-right: 15px;
-  }
-
 .right{
   float: right;
   }
@@ -81,32 +56,16 @@ a:link, a:visited {
   margin-top: 20px;
   }
 
-.question-info{
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  }
+
+li {
   float: left;
-  margin-left: 20px;
-  margin-top: 20px;
-  .question-title{
-    font-size: 18px;
-    font-weight: bold;
-    }
-  .question-title-tags{
-    margin-top: 10px;
-    }
+  margin-right: 15px;
   }
-
-
-.question-management {
-  float: right;
-  font-size: 15px;
-  .user-info {
-    margin-top: 10px;
-    }
-  .question-delete {
-    margin-top: 10px;
-    }
-  }
-
-
 
 
 

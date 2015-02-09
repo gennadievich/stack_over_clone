@@ -1,24 +1,29 @@
-<%= form_for :question do |f| %>
+<div class="question-form">
+    <%= form_for :question do |f| %>
 
+        <div class="question-text">
+            <%= f.label :title %>
+        </div>
 
-    <p>
-        <%= f.label :title %>
-        <%= f.text_field :title %>
-    </p>
+        <div class="question-title-field">
+            <%= f.text_area :title, class: 'question-title-field' %>
+        </div>
 
-    <p>
-        <%= f.label :description %>
-        <%= f.text_area :description %>
-    </p>
+        <div class="question-title-field">
+            <%= f.text_area :description, class: 'question-description-field' %>
+        </div>
 
+        <div class="question-form-tags">
+            <%= f.label :tags %>
+        </div>
 
-    <p>
-        <%= f.label :tags %>
-        <%= f.text_field :tages %>
-    </p>
+        <div>
+            <%= f.text_area :tages, class: 'question-tag-field', placeholder: 'html, css, ruby on rails' %>
+        </div>
 
-    <p>
-        <%= f.submit %>
-    </p>
+        <div>
+            <%= f.submit 'Ask your question!', class: 'ask-button' %>
+        </div>
 
-<% end %>
+    <% end %>
+</div>

@@ -1,3 +1,8 @@
+<div style="margin-top: 10px">
+  <%= render text: 'Answers:' if @question.answers.count != 0  %>
+</div>
+
+
 <br>
 <%= answer.body %>
 Author: <%= answer.user.email %>

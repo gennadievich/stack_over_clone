@@ -3,14 +3,34 @@
     <div class="circle">
       <div class="circle-text">
         <%= question.views %><br>
-        Views
+        <% if question.views != 1%>
+            <%= 'View'.pluralize  %>
+        <% else %>
+            <%= 'View' %>
+        <% end %>
       </div>
     </div>
 
+
+  <div class="circle">
+    <div class="circle-text">
+      <%= question.answers.count %><br>
+      <% if question.answers.count != 1%>
+          <%= 'Answer'.pluralize  %>
+      <% else %>
+          <%= 'Answer' %>
+      <% end %>
+    </div>
+  </div>
+
     <div class="circle">
       <div class="circle-text">
-        <%= question.votes %><br>
-        Votes
+        <%= question.votes%><br>
+        <% if question.votes != 1%>
+            <%= 'Vote'.pluralize  %>
+        <% else %>
+            <%= 'Vote' %>
+        <% end %>
       </div>
     </div>
 

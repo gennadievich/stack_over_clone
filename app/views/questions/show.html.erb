@@ -1,12 +1,14 @@
 
 <%= render partial: 'questions/show_question_partial', locals: {question: @question} %>
 
-Answers:
-
-
 <%= render @question.answers %>
 
 
 <div style="margin-top: 30px">
+    <% if current_user.nil? %>
+      <%= render partial: 'layouts/login_register' %>
+      <%else %>
     <%= render partial: 'answers/answer_form' %>
+<% end %>
+
 </div>

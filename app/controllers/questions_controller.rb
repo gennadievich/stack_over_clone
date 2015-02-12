@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
 
-  before_action :authenticate_user, except: [:index,:index_15]
+  before_action :authenticate_user, except: [:index,:index_15, :show]
 
   def index_15
     @question = Question.order('created_at desc').limit(15)
@@ -46,7 +46,7 @@ class QuestionsController < ApplicationController
     @question.user = @current_user
 
     if @question.save
-      redirect_to root_path
+      redirect_to question_path(@question)
     else
       render :new
     end

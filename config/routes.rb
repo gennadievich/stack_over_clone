@@ -7,8 +7,11 @@ Stack::Application.routes.draw do
   get  '/questions/search_questions/:tag_id' => 'questions#search_questions_by', as: 'search_questions'
 
   resources :users
-  resources :questions
+  resources :questions do
+    resources :answers
+  end
   resources :tags
+
 
   get  '/login'   => 'sessions#index', as: 'login'
   post '/login'   => 'sessions#create'

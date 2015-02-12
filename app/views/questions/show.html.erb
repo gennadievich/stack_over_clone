@@ -1,6 +1,12 @@
 
 <%= render partial: 'questions/show_question_partial', locals: {question: @question} %>
 
+Answers:
 
-<br>
-Here will be answers
+
+<%= render @question.answers %>
+
+
+<div style="margin-top: 30px">
+    <%= render partial: 'answers/answer_form' %>
+</div>

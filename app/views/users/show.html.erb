@@ -1,10 +1,14 @@
-User page
-<p>
-<%= @user.email %>
-</p>
+<div class="user-page-name">
+  <%= @user.email %>
+  ID #<%= @user.id %>
+  <div style="font-size: 18px; margin-top: 5px;">
+    Registered: <%= @user.created_at.strftime("%d %b %Y")  %>
+  </div>
+</div>
 
-<p>
-  Total user's questions: <%= @user.questions.count %>
-</p>
+<div class="user-page-info">
+  <div>Total user's questions: <%= @user.questions.count %></div>
 
-<%= link_to 'Back', root_path %>
+  <div>Total user's answers: <%= @user.answers.count %></div>
+</div>
+

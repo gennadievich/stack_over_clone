@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   def show
     begin
       @user = User.find(params[:id])
-      unless @user == current_user
+      unless @user
         redirect_to root_path
       end
     rescue

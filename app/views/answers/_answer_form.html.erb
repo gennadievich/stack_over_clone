@@ -1,7 +1,10 @@
-<%= form_for [@question, @answer] do |f| %>
+<div class="answer-form">
+  <div style="margin-top: 10px;">Type your Answer here:</div>
+    <%= form_for [@question, @answer] do |f| %>
 
-    <%= f.text_area :body %>
+        <%= f.text_area :body, class: 'answer-field' %>
 
-    <%= f.submit 'Answer!' %>
+        <%= f.submit 'Answer!', class: 'answer-button' %>
 
-<% end %>
+    <% end %>
+</div>

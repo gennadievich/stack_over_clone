@@ -2,7 +2,7 @@
 <%= render partial: 'questions/show_question_partial', locals: {question: @question} %>
 
 
-<div style="margin-top: 10px">
+<div style="margin-top: 10px; font-size: 24px;">
   <%= render text: 'Answers:' if @question.answers.count != 0  %>
 </div>
 

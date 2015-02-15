@@ -1,5 +1,5 @@
 <% tags.each do |tag| %>
-    <span id="tag" style="display: inline-block">
-      <%= link_to "<#{tag.name} (#{tag.questions.count})>", search_questions_path(tag.id) %>
+    <span id="tag" style="display: inline-block; background: darkorange; border: 1px darkorange solid; border-radius: 5px; padding: 3px; ">
+      <%= link_to "#{tag.name} (#{tag.questions.count})", search_questions_path(tag.id) %>
     </span>
 <% end %>

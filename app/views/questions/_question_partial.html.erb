@@ -12,16 +12,16 @@
     </div>
 
 
-  <div class="circle">
-    <div class="circle-text">
-      <%= question.answers.count %><br>
-      <% if question.answers.count != 1%>
-          <%= 'Answer'.pluralize  %>
-      <% else %>
-          <%= 'Answer' %>
-      <% end %>
+    <div class="circle">
+        <div class="circle-text">
+        <%= question.answers.count %><br>
+        <% if question.answers.count != 1%>
+              <%= 'Answer'.pluralize  %>
+        <% else %>
+              <%= 'Answer' %>
+        <% end %>
+        </div>
     </div>
-  </div>
 
     <div class="circle">
       <div class="circle-text">
@@ -34,9 +34,19 @@
       </div>
     </div>
 
-    <div class="question-info">
+    <div class="question-info" >
+
+      <div style="float: left;">
+        <%= link_to 'Vote Up', vote_up_path(question.id) %>
+      </div>
+        <br>
+      <div style="float: left; margin-top: 25px;">
+        <%= link_to 'Vote Down', vote_down_path(question.id) %>
+      </div>
+
       <div class="question-title">
         <%= link_to "#{question.title}", question_path(question.id) %>
+
       </div>
 
       <div class="question-title-tags">

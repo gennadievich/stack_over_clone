@@ -9,8 +9,14 @@ Stack::Application.routes.draw do
   resources :users
   resources :questions do
     resources :answers
+    resources :votes
   end
   resources :tags
+
+
+  get  'votes/vote_up/:question_id' => 'votes#vote_up', as: 'vote_up'
+  get  'votes/vote_down/:question_id' => 'votes#vote_down', as: 'vote_down'
+
 
 
   get  '/login'   => 'sessions#index', as: 'login'

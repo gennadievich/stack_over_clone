@@ -53,12 +53,10 @@ ActiveRecord::Schema.define(version: 20150212162640) do
     t.datetime "updated_at"
   end
 
-  create_table "votes", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "question_id"
-    t.string   "vote"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table "votes", id: false, force: true do |t|
+    t.integer "user_id"
+    t.integer "question_id"
+    t.string  "vote"
   end
 
 end

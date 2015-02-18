@@ -6,6 +6,10 @@ class QuestionsController < ApplicationController
     @question = Question.order('created_at desc').limit(15)
   end
 
+  def sort_by_rating
+    @question = Question.order('votes desc')
+  end
+
   def index
     @question = Question.order('created_at desc')
   end

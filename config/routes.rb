@@ -5,6 +5,7 @@ Stack::Application.routes.draw do
 
   root 'questions#index_15'
   get  '/questions/search_questions/:tag_id' => 'questions#search_questions_by', as: 'search_questions'
+  get  '/questions/sort_by_rating' => 'questions#sort_by_rating', as: 'sort_by_rating'
 
   resources :users
   resources :questions do

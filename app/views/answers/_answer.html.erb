@@ -1,5 +1,10 @@
 <div class="answer">
 
+  <div class="answer-votes">
+    Votes: <%= answer.votes %>
+    <div><%= link_to 'up', vote_answer_up_path(answer.id) %> <%= link_to 'down', vote_answer_down_path(answer.id) %></div>
+  </div>
+
   <div class="answer-body">
     <%= answer.body %>
   </div>

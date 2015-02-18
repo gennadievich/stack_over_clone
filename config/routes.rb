@@ -9,14 +9,19 @@ Stack::Application.routes.draw do
 
   resources :users
   resources :questions do
-    resources :answers
+    resources :answers do
+      resources :votes
+    end
     resources :votes
   end
   resources :tags
 
 
-  get  'votes/vote_up/:question_id' => 'votes#vote_up', as: 'vote_up'
-  get  'votes/vote_down/:question_id' => 'votes#vote_down', as: 'vote_down'
+  get  'votes/vote_question_up/:question_id' => 'votes#vote_question_up', as: 'vote_question_up'
+  get  'votes/vote_question_down/:question_id' => 'votes#vote_question_down', as: 'vote_question_down'
+
+  get  'votes/vote_answer_up/:answer_id' => 'votes#vote_answer_up', as: 'vote_answer_up'
+  get  'votes/vote_answer_down/:answer_id' => 'votes#vote_answer_down', as: 'vote_answer_down'
 
 
 

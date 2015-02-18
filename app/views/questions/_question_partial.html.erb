@@ -37,11 +37,11 @@
     <div class="question-info" >
 
       <div style="float: left;">
-        <%= link_to 'Vote Up', vote_up_path(question.id) %>
+        <%= link_to 'Vote Up', vote_question_up_path(question.id) %>
       </div>
         <br>
       <div style="float: left; margin-top: 25px;">
-        <%= link_to 'Vote Down', vote_down_path(question.id) %>
+        <%= link_to 'Vote Down', vote_question_down_path(question.id) %>
       </div>
 
       <div class="question-title">

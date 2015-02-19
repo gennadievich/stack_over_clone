@@ -5,6 +5,7 @@ class Question < ActiveRecord::Base
   has_and_belongs_to_many :tags
   belongs_to :user
   has_many :answers
+  has_many :votes
 
   def tages=(tages)
     tages = tages.split(', ').map do |tag|
@@ -15,6 +16,12 @@ class Question < ActiveRecord::Base
 
   def tages
     @tages
+  end
+
+  def score
+    up = votes.where('vote = ?', 'up').count
+    down = votes.where('vote = ?', 'down').count
+    up - down
   end
 
 

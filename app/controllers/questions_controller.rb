@@ -7,7 +7,7 @@ class QuestionsController < ApplicationController
   end
 
   def sort_by_rating
-    @question = Question.order('votes desc')
+    @question = Question.order('views desc')
   end
 
   def index

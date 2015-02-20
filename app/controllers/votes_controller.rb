@@ -1,6 +1,7 @@
 class VotesController < ApplicationController
 
   before_action :authenticate_user
+  after_action :set_rating, only: [:vote_question_down, :vote_question_up]
 
   def vote_question_up
     @question       = Question.find(params[:question_id])
@@ -64,6 +65,14 @@ class VotesController < ApplicationController
     @answer.votes -= 1
     @answer.save
     redirect_to :back
+  end
+
+  private
+
+  def set_rating
+    @question = Question.find(params[:question_id])
+    @question.rating = @question.score
+    @question.save
   end
 
 end

@@ -8,10 +8,8 @@ class VotesController < ApplicationController
     @vote           = Vote.new(vote: 'up', user_id: current_user.id)
     check_vote_up   = @question.votes.where('vote = ? and user_id = ?', 'up', current_user.id).count
     if check_vote_up == 0
-
-
       check_vote_down = @question.votes.where('vote = ? and user_id = ?', 'down', current_user.id)
-      #raise check_vote_down.count.inspect
+
       if check_vote_down.count != 0
         @question.votes.where('vote = ? and user_id = ?', 'down', current_user.id).delete_all
       end
@@ -28,8 +26,6 @@ class VotesController < ApplicationController
     @vote             = Vote.new(vote: 'down', user_id: current_user.id)
     check_vote_down   = @question.votes.where('vote = ? and user_id = ?', 'down', current_user.id).count
     if check_vote_down == 0
-
-
       check_vote_up   = @question.votes.where('vote = ? and user_id = ?', 'up', current_user.id).count
 
       if check_vote_up != 0

@@ -11,53 +11,54 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150220194613) do
+ActiveRecord::Schema.define(version: 20150221132102) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "answers", force: true do |t|
+  create_table "answers", force: :cascade do |t|
     t.integer  "question_id"
     t.integer  "user_id"
     t.text     "body"
     t.boolean  "accepted",    default: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "votes",       default: 0
+    t.integer  "rating",      default: 0
   end
 
-  create_table "questions", force: true do |t|
-    t.string   "title"
+  create_table "questions", force: :cascade do |t|
+    t.string   "title",       limit: 255
     t.text     "description"
-    t.integer  "views",       default: 0
+    t.integer  "views",                   default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
     t.integer  "rating"
   end
 
-  create_table "questions_tags", id: false, force: true do |t|
+  create_table "questions_tags", id: false, force: :cascade do |t|
     t.integer "question_id"
     t.integer "tag_id"
   end
 
-  create_table "tags", force: true do |t|
-    t.string   "name"
+  create_table "tags", force: :cascade do |t|
+    t.string   "name",       limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "users", force: true do |t|
-    t.string   "email"
-    t.string   "password_digest"
+  create_table "users", force: :cascade do |t|
+    t.string   "email",           limit: 255
+    t.string   "password_digest", limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "votes", id: false, force: true do |t|
+  create_table "votes", id: false, force: :cascade do |t|
     t.integer "user_id"
     t.integer "question_id"
-    t.string  "vote"
+    t.string  "vote",        limit: 255
+    t.integer "answer_id"
   end
 
 end

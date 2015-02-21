@@ -6,7 +6,7 @@
   <%= render text: 'Answers:' if @question.answers.count != 0  %>
 </div>
 
-<%= render @question.answers.order('votes desc') %>
+<%= render @question.answers.order('rating desc') %>
 
 
 <div style="margin-top: 30px">

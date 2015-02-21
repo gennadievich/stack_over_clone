@@ -9,7 +9,7 @@ class Question < ActiveRecord::Base
 
   def tages=(tages)
     tages = tages.split(', ').map do |tag|
-      Tag.find_or_create_by_name(tag)
+      Tag.where(name: tag).first_or_create
     end
     @tages = tages
   end

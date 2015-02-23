@@ -16,14 +16,7 @@ Stack::Application.routes.draw do
   end
   resources :tags
 
-
-  get  'votes/vote_question_up/:question_id' => 'votes#vote_question_up', as: 'vote_question_up'
-  get  'votes/vote_question_down/:question_id' => 'votes#vote_question_down', as: 'vote_question_down'
-
-  get  'votes/vote_answer_up/:answer_id' => 'votes#vote_answer_up', as: 'vote_answer_up'
-  get  'votes/vote_answer_down/:answer_id' => 'votes#vote_answer_down', as: 'vote_answer_down'
-
-
+  get  'votes/perform_vote_for/:what, :id, :how' => 'votes#perform_vote_for', as: 'perform_vote_for'
 
   get  '/login'   => 'sessions#index', as: 'login'
   post '/login'   => 'sessions#create'

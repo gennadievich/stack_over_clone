@@ -2,7 +2,7 @@
 
   <div class="answer-votes">
     Votes: <%= answer.rating %>
-    <div><%= link_to 'up', vote_answer_up_path(answer.id) %> <%= link_to 'down', vote_answer_down_path(answer.id) %></div>
+    <div><%= link_to 'up', perform_vote_for_path(answer.class, answer.id, 'up') %> <%= link_to 'down', perform_vote_for_path(answer.class, answer.id, 'down') %></div>
   </div>
 
   <div class="answer-body">

@@ -1,6 +1,6 @@
 class Question < ActiveRecord::Base
 
-  validates_presence_of :title, :description
+  validates_presence_of :title, :description, :tags
 
   has_and_belongs_to_many :tags
   belongs_to :user

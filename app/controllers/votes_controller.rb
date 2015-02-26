@@ -1,7 +1,6 @@
 class VotesController < ApplicationController
 
   before_action :authenticate_user
-  after_action :set_rating, only: [:perform_vote_for]
 
   def perform_vote_for
     smth = params[:what].constantize.find(params[:id])
@@ -11,10 +10,9 @@ class VotesController < ApplicationController
     else
       if how == 'up'
         if smth.votes.where('vote = ? and user_id =?', how, current_user.id).count == 0
-            if smth.votes.where('vote = ? and user_id =?', 'down', current_user.id).count != 0
-              smth.votes.where('vote = ? and user_id =?', 'down', current_user.id).delete_all
-            end
+          smth.votes.where('vote = ? and user_id =?', 'down', current_user.id).delete_all if smth.votes.where('vote = ? and user_id =?', 'down', current_user.id).count != 0
           smth.votes <<  Vote.new(vote: how, user_id: current_user.id)
+          smth.rating = smth.score
           smth.save
           redirect_to :back
         else
@@ -23,10 +21,9 @@ class VotesController < ApplicationController
 
       elsif how == 'down'
         if smth.votes.where('vote = ? and user_id =?', how, current_user.id).count == 0
-          if smth.votes.where('vote = ? and user_id =?', 'up', current_user.id).count != 0
-            smth.votes.where('vote = ? and user_id =?', 'up', current_user.id).delete_all
-          end
+          smth.votes.where('vote = ? and user_id =?', 'up', current_user.id).delete_all if smth.votes.where('vote = ? and user_id =?', 'up', current_user.id).count != 0
           smth.votes << Vote.new(vote: how, user_id: current_user.id)
+          smth.rating = smth.score
           smth.save
           redirect_to :back
         else
@@ -36,13 +33,15 @@ class VotesController < ApplicationController
     end
   end
 
-  private
-
-  def set_rating
+  def unvote
     smth = params[:what].constantize.find(params[:id])
-    smth.rating = smth.score
+    how  = params[:how]
+    smth.votes.where('vote = ? and user_id =?', how, current_user.id).delete_all
     smth.save
+    redirect_to :back
   end
+
+  private
 
   def user_created(what)
     what.user == current_user

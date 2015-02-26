@@ -36,15 +36,47 @@
 
     <div class="question-info" >
 
-      <div style="width: 25px;">
-        <div style="float: left; ">
-            <%= link_to image_tag('up.png', size: '25x25'), perform_vote_for_path(question.class, question.id, 'up')%>
-        </div>
+        <div style="width: 25px;">
+          <% if current_user %>
+              <% if question.user == current_user %>
+                <br>
+              <% else %>
+                  <% if question.votes.where('user_id = ?', current_user.id).count == 0%>
+                      <div style="float: left; ">
+                         <%= link_to image_tag('up_yellow.png', size: '25x25'), perform_vote_for_path(question.class, question.id, 'up')%>
+                      </div>
+                      <br>
+                      <div style="float: left; margin-top: 5px; ">
+                        <%= link_to image_tag('down_yellow.png', size: '25x25'), perform_vote_for_path(question.class, question.id, 'down')%>
+                      </div>
+                  <% elsif question.votes.where('user_id = ? and vote = ?', current_user.id, 'up').count == 1%>
+                      <div style="float: left; ">
+                        <%= link_to image_tag('up_green.png', size: '25x25')%>
+                      </div>
+                      <br>
+                      <div style="float: left; margin-top: 5px; ">
+                        <%= link_to image_tag('down_yellow.png', size: '25x25'), unvote_path(question.class, question.id, 'up')%>
+                      </div>
+                  <% elsif question.votes.where('user_id = ? and vote = ?', current_user.id, 'down').count == 1%>
+                      <div style="float: left; ">
+                        <%= link_to image_tag('up_yellow.png', size: '25x25'), unvote_path(question.class, question.id, 'down')%>
+                      </div>
+                      <br>
+                      <div style="float: left; margin-top: 5px; ">
+                        <%= link_to image_tag('down_red.png', size: '25x25')%>
+                      </div>
+                  <% end %>
+              <% end %>
+          <% else %>
+            <div style="float: left; ">
+              <%= link_to image_tag('up_yellow.png', size: '25x25'), perform_vote_for_path(question.class, question.id, 'up')%>
+            </div>
             <br>
-        <div style="float: left; margin-top: 5px; ">
-            <%= link_to image_tag('down.png', size: '25x25'), perform_vote_for_path(question.class, question.id, 'down')%>
+            <div style="float: left; margin-top: 5px; ">
+                <%= link_to image_tag('down_yellow.png', size: '25x25'), perform_vote_for_path(question.class, question.id, 'down')%>
+            </div>
+          <% end %>
         </div>
-      </div>
 
       <div class="question-title">
         <%= link_to "#{question.title}", question_path(question.id) %>

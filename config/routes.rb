@@ -17,7 +17,7 @@ Stack::Application.routes.draw do
   resources :tags
 
   get  'votes/perform_vote_for/:what, :id, :how' => 'votes#perform_vote_for', as: 'perform_vote_for'
-  get  'votes/unvote/:what, :id, :how' => 'votes#unvote', as: 'unvote'
+  get  'votes/unvote/:what, :id' => 'votes#unvote', as: 'unvote'
 
   get  '/login'   => 'sessions#index', as: 'login'
   post '/login'   => 'sessions#create'

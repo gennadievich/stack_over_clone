@@ -35,8 +35,7 @@ class VotesController < ApplicationController
 
   def unvote
     smth = params[:what].constantize.find(params[:id])
-    how  = params[:how]
-    smth.votes.where('vote = ? and user_id =?', how, current_user.id).delete_all
+    smth.votes.where('user_id =?', current_user.id).delete_all
     smth.save
     redirect_to :back
   end

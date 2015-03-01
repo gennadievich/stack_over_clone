@@ -2,7 +2,7 @@
 <%= render partial: 'questions/show_question_partial', locals: {question: @question} %>
 
 
-<div style="margin-top: 10px; font-size: 24px; margin-bottom: 30px;g">
+<div style="margin-top: 10px; font-size: 24px; margin-bottom: 30px;">
     <%= render text: 'Best Answer' if @question.answers.where('accepted = ?', true).count == 1 %>
     <%= render @question.answers.where('accepted = ?', true) %>
 </div>

@@ -15,14 +15,16 @@ class AnswersController < ApplicationController
     @best_answer  = @question.answers.where('accepted = ?', true).count
 
     if @question.user == current_user
-      if @best_answer == 0
-        @answer.accepted = true
-        @answer.save
+      if @answer.user != current_user
+        if @best_answer == 0
+          @answer.accepted = true
+          @answer.save
+        else
+          redirect_to :back
+        end
       else
         redirect_to :back
       end
-    else
-      redirect_to :back
     end
   end
 

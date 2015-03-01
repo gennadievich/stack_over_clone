@@ -2,10 +2,14 @@
 <%= render partial: 'questions/show_question_partial', locals: {question: @question} %>
 
 
+<div style="margin-top: 10px; font-size: 24px; margin-bottom: 30px;g">
+    <%= render text: 'Best Answer' if @question.answers.where('accepted = ?', true).count == 1 %>
+    <%= render @question.answers.where('accepted = ?', true) %>
+</div>
+
 <div style="margin-top: 10px; font-size: 24px;">
   <%= render text: 'Answers:' if @question.answers.count != 0  %>
 </div>
-
 <%= render @question.answers.order('rating desc') %>
 
 

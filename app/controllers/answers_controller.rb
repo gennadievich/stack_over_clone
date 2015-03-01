@@ -9,6 +9,34 @@ class AnswersController < ApplicationController
     redirect_to question_path(@question)
   end
 
+  def best_answer
+    @answer   = Answer.find(params[:answer_id])
+    @question = @answer.question
+    @best_answer  = @question.answers.where('accepted = ?', true).count
+
+    if @question.user == current_user
+      if @best_answer == 0
+        @answer.accepted = true
+        @answer.save
+      else
+        redirect_to :back
+      end
+    else
+      redirect_to :back
+    end
+  end
+
+  def not_best_answer
+    @answer   = Answer.find(params[:answer_id])
+    @question = @answer.question
+    if @question.user == current_user
+      @answer.accepted = false
+      @answer.save
+      redirect_to :back
+    else
+      redirect_to :back
+    end
+  end
 
   private
   def  answer_params

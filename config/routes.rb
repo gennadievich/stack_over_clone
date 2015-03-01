@@ -16,6 +16,9 @@ Stack::Application.routes.draw do
   end
   resources :tags
 
+  get  'answers/best_answer/:answer_id' => 'answers#best_answer', as: 'best_answer'
+  get  'answers/not_best_answer/:answer_id' => 'answers#not_best_answer', as: 'not_best_answer'
+
   get  'votes/perform_vote_for/:what, :id, :how' => 'votes#perform_vote_for', as: 'perform_vote_for'
   get  'votes/unvote/:what, :id' => 'votes#unvote', as: 'unvote'
 

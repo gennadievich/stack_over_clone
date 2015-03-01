@@ -1,8 +1,29 @@
-<div class="<%= 'answer' if true %>">
+<div class="
+    <% if answer.accepted %>
+    <%= 'accepted-answer' %>
+    <% else %>
+    <%= 'answer' %>
+    <% end %>
+">
 
   <div class="answer-votes">
     Votes: <%= answer.rating %>
-    <div><%= link_to 'up', perform_vote_for_path(answer.class, answer.id, 'up') %> <%= link_to 'down', perform_vote_for_path(answer.class, answer.id, 'down') %></div>
+    <% unless answer.user == current_user %>
+        <div>
+          <%= link_to image_tag('up_yellow.png', size: '20x20'), perform_vote_for_path(answer.class, answer.id, 'up') %>
+          <%= link_to image_tag('down_yellow.png', size: '20x20'), perform_vote_for_path(answer.class, answer.id, 'down') %>
+        </div>
+    <% end %>
+
+  </div>
+
+  <div style="float: left; width: 40px; height: 40px; padding-left: 5px; padding-top: 2px;">
+    <% if answer.question.user == current_user %>
+    <% if answer.question.answers.where('accepted = ?', true).count == 0 %>
+        <%= link_to image_tag('accepted.png', size: '25x25'), best_answer_path(answer.id)%>
+    <% end %>
+        <%end %>
+    <%= link_to image_tag('accepted.png', size: '35x35'), not_best_answer_path(answer.id) if answer.accepted %>
   </div>
 
   <div class="answer-body">

@@ -44,3 +44,26 @@
     margin-top: -18px;
     }
   }
+
+.accepted-answer{
+  margin-top: 10px;
+  margin-left: 100px;
+  border: solid 3px green;
+  padding: 5px;
+  overflow: hidden;
+
+  .answer-votes{
+    float: left;
+
+    }
+
+  .answer-body{
+    width: 900px;
+    margin-left: 100px;
+    text-align: left;
+    }
+  .answer-author{
+    float: right;
+    margin-top: -18px;
+    }
+  }

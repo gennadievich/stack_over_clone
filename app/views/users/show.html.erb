@@ -1,16 +1,31 @@
 <div class="user-page-name">
   <%= @user.email %>
-  ID #<%= @user.id %>
-  <div style="font-size: 18px; margin-top: 5px;">
-    Registered: <%= @user.created_at.strftime("%d %b %Y")  %>
-  </div>
+
+
 </div>
 
-<%= image_tag "avatar.jpg" %>
+<div>
+    <div>
+        <%= image_tag "avatar.jpg", class:'image' %>
+    </div>
+
+    <div style="font-size: 18px; margin-top: 25px; float: left; margin-left: 20px;">
+      ID #<%= @user.id %>
+      <br>
+      Registered: <%= @user.created_at.strftime("%d %b %Y")  %>
+    </div>
+</div>
 
 <div class="user-page-info">
   <div>Total user's questions: <%= @user.questions.count %></div>
 
   <div>Total user's answers: <%= @user.answers.count %></div>
+
+  <% if @user.answers.where('accepted = ?', true).count !=0 %>
+    <div>
+        Total user's Best answers <%= @user.answers.where('accepted = ?', true).count %>
+    </div>
+  <% end %>
+
 </div>
 
